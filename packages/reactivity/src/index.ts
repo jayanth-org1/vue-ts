@@ -95,3 +95,11 @@ export {
   type WatchCallback,
   type OnCleanup,
 } from './watch'
+
+// New deferred reactivity utilities
+export {
+  deferredRef,
+  throttledRef,
+  debouncedRef,
+  type DeferredRefOptions,
+} from './deferredRef'

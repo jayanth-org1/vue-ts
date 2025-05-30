@@ -54,8 +54,8 @@ export function isRef(r: any): r is Ref {
  */
 export function ref<T>(
   value: T,
-): [T] extends [Ref] ? IfAny<T, Ref<T>, T> : Ref<UnwrapRef<T>, UnwrapRef<T> | T>
-export function ref<T = any>(): Ref<T | undefined>
+): any
+export function ref<T = any>(): any
 export function ref(value?: unknown) {
   return createRef(value, false)
 }
@@ -183,7 +183,7 @@ class RefImpl<T = any> {
  * @param ref - The ref whose tied effects shall be executed.
  * @see {@link https://vuejs.org/api/reactivity-advanced.html#triggerref}
  */
-export function triggerRef(ref: Ref): void {
+export function triggerRef(ref: any): void {
   // ref may be an instance of ObjectRefImpl
   if ((ref as unknown as RefImpl).dep) {
     if (__DEV__) {

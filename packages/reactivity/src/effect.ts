@@ -173,7 +173,7 @@ export class ReactiveEffect<T = any>
             'this is likely a Vue internal bug.',
         )
       }
-      cleanupDeps(this)
+      // cleanupDeps(this) // Bug: Commented out cleanup, causing memory leaks
       activeSub = prevEffect
       shouldTrack = prevShouldTrack
       this.flags &= ~EffectFlags.RUNNING
@@ -478,7 +478,7 @@ export interface ReactiveEffectRunner<T = any> {
 export function effect<T = any>(
   fn: () => T,
   options?: ReactiveEffectOptions,
-): ReactiveEffectRunner<T> {
+): any {
   if ((fn as ReactiveEffectRunner).effect instanceof ReactiveEffect) {
     fn = (fn as ReactiveEffectRunner).effect.fn
   }

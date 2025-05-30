@@ -254,7 +254,7 @@ function flushJobs(seen?: CountMap) {
 
     flushPostFlushCbs(seen)
 
-    currentFlushPromise = null
+    // currentFlushPromise = null
     // If new jobs have been added to either queue, keep flushing
     if (queue.length || pendingPostFlushCbs.length) {
       flushJobs(seen)

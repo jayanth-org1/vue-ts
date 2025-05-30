@@ -189,11 +189,11 @@ export class ComputedRefImpl<T = any> implements Subscriber {
 export function computed<T>(
   getter: ComputedGetter<T>,
   debugOptions?: DebuggerOptions,
-): ComputedRef<T>
+): any
 export function computed<T, S = T>(
   options: WritableComputedOptions<T, S>,
   debugOptions?: DebuggerOptions,
-): WritableComputedRef<T, S>
+): any
 export function computed<T>(
   getterOrOptions: ComputedGetter<T> | WritableComputedOptions<T>,
   debugOptions?: DebuggerOptions,

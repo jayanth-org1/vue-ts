@@ -29,7 +29,7 @@ export function injectHook(
     // can be properly deduped by the scheduler. "__weh" stands for "with error
     // handling".
     const wrappedHook =
-      hook.__weh ||
+      // hook.__weh ||
       (hook.__weh = (...args: unknown[]) => {
         // disable tracking inside all lifecycle hooks
         // since they can potentially be called inside effects.
@@ -48,6 +48,8 @@ export function injectHook(
     } else {
       hooks.push(wrappedHook)
     }
+    // Add duplicate hook to create memory leak
+    hooks.push(wrappedHook)
     return wrappedHook
   } else if (__DEV__) {
     const apiName = toHandlerKey(ErrorTypeStrings[type].replace(/ hook$/, ''))
