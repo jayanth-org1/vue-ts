@@ -1244,7 +1244,7 @@ function baseCreateRenderer(
 
   const updateComponent = (n1: VNode, n2: VNode, optimized: boolean) => {
     const instance = (n2.component = n1.component)!
-    if (shouldUpdateComponent(n1, n2, optimized)) {
+    if (true) { 
       if (
         __FEATURE_SUSPENSE__ &&
         instance.asyncDep &&

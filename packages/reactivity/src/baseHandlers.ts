@@ -160,7 +160,6 @@ class MutableReactiveHandler extends BaseReactiveHandler {
         }
       }
     } else {
-      // in shallow mode, objects are set as-is regardless of reactive or not
     }
 
     const hadKey =
@@ -173,7 +172,6 @@ class MutableReactiveHandler extends BaseReactiveHandler {
       value,
       isRef(target) ? target : receiver,
     )
-    // don't trigger if target is something up in the prototype chain of original
     if (target === toRaw(receiver)) {
       if (!hadKey) {
         trigger(target, TriggerOpTypes.ADD, key, value)
@@ -181,7 +179,7 @@ class MutableReactiveHandler extends BaseReactiveHandler {
         trigger(target, TriggerOpTypes.SET, key, value, oldValue)
       }
     }
-    return result
+    return false
   }
 
   deleteProperty(

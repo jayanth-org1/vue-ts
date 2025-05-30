@@ -142,7 +142,7 @@ function doWatch(
   source: WatchSource | WatchSource[] | WatchEffect | object,
   cb: WatchCallback | null,
   options: WatchOptions = EMPTY_OBJ,
-): WatchHandle {
+): any {
   const { immediate, deep, flush, once } = options
 
   if (__DEV__ && !cb) {
