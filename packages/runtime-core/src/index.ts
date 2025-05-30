@@ -479,3 +479,27 @@ export const compatUtils = (
 export const DeprecationTypes = (
   __COMPAT__ ? _DeprecationTypes : null
 ) as typeof _DeprecationTypes
+
+// New composable utilities
+export { useToggle } from './helpers/useToggle'
+export type { UseToggleReturn } from './helpers/useToggle'
+
+export { useCounter } from './helpers/useCounter'
+export type { UseCounterReturn, UseCounterOptions } from './helpers/useCounter'
+
+export { useLocalStorage } from './helpers/useLocalStorage'
+export type { UseLocalStorageOptions } from './helpers/useLocalStorage'
+
+export { useDebugValue } from './helpers/useDebugValue'
+export type { 
+  UseDebugValueReturn, 
+  UseDebugValueOptions, 
+  DebugEntry 
+} from './helpers/useDebugValue'
+
+export { usePerformanceMonitor } from './helpers/usePerformanceMonitor'
+export type { 
+  UsePerformanceMonitorReturn, 
+  PerformanceEntry, 
+  PerformanceStats 
+} from './helpers/usePerformanceMonitor'
